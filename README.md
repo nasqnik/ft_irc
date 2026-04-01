@@ -90,6 +90,16 @@ Notes:
 - Wrong `PASS` returns `464` and connection is closed.
 - Nicknames are compared case-insensitively (IRC-style casefolding).
 
+## Message Flow
+
+1. Client connects to server via TCP
+2. Client completes registration (PASS, NICK, USER)
+3. Server stores client state and assigns nickname
+4. Client joins a channel (#test)
+5. Messages (PRIVMSG) are broadcast to all channel members
+
+Client → Server → Channel/User state → Broadcast
+
 ## Supported Commands
 
 Implemented command handlers:
@@ -156,3 +166,17 @@ Potential limitations may include:
 - No persistence
 - Limited subset of IRC commands/capabilities compared to full RFC implementations
 
+## Collaboration
+
+This project was developed as part of a team collaboration.  
+The original repository is private and not publicly accessible.
+
+## My contribution
+
+- Implemented the core IRC command handling (JOIN, PRIVMSG, MODE, etc.)
+- Developed server-side logic for command parsing, validation, and execution
+- Contributed to overall server architecture and behavior
+
+My teammate focused on:
+- Establishing network connections
+- Managing incoming client connections and low-level I/O
